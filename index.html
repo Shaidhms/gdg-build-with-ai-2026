@@ -74,6 +74,27 @@
       position: relative; overflow: hidden;
     }
 
+    /* Right-side event photo */
+    .hero-photo {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 42%;
+      pointer-events: none; z-index: 0;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      transform: scaleX(-1);
+      opacity: 0.22;
+      display: block;
+    }
+    .hero-photo-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 40%),
+                  linear-gradient(to top, var(--bg) 0%, transparent 30%);
+    }
+    @media (max-width: 700px) { .hero-photo { display: none; } }
+
     /* Animated gradient orbs */
     .hero-orbs {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -583,6 +604,12 @@
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
+  <!-- Right-side event photo (mirrored) -->
+  <div class="hero-photo">
+    <img src="images/IMG_5108.jpeg" alt="">
+    <div class="hero-photo-fade"></div>
+  </div>
+
   <!-- Animated orbs -->
   <div class="hero-orbs">
     <div class="orb orb-1"></div>
