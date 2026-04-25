@@ -77,20 +77,19 @@
     /* Right-side event photo */
     .hero-photo {
       position: absolute;
-      right: 0; top: 0; bottom: 0;
+      left: 0; top: 0; bottom: 0;
       width: 42%;
       pointer-events: none; z-index: 0;
     }
     .hero-photo img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
-      transform: scaleX(-1);
       opacity: 0.22;
       display: block;
     }
     .hero-photo-fade {
       position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--bg) 0%, transparent 40%),
+      background: linear-gradient(to left, var(--bg) 0%, transparent 40%),
                   linear-gradient(to top, var(--bg) 0%, transparent 30%);
     }
     @media (max-width: 700px) { .hero-photo { display: none; } }
@@ -531,6 +530,94 @@
     .footer-links a:hover { color: var(--text); }
     .footer-credits { font-size: 0.72rem; color: #444; line-height: 1.9; margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
 
+    /* ── COMMUNITY MEETUP ────────────────────────────── */
+    .community-wrap {
+      max-width: 1100px; margin: 5rem auto 0; padding: 0 2rem;
+    }
+    .community-card {
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem; align-items: center;
+      background: linear-gradient(135deg, rgba(66,133,244,0.06), rgba(52,168,83,0.04));
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 2.25rem;
+    }
+    .community-photo {
+      width: 100%; aspect-ratio: 4 / 3; overflow: hidden;
+      border-radius: 12px; border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+    }
+    .community-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .community-text .section-eyebrow { margin-bottom: 0.85rem; }
+    .community-text h3 {
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      line-height: 1.25; margin-bottom: 1rem;
+    }
+    .community-text p {
+      color: rgba(255,255,255,0.72); font-size: 0.95rem;
+      line-height: 1.8; margin-bottom: 0.85rem;
+    }
+    .community-text strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 800px) {
+      .community-card { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
+    }
+
+    /* ── GRATITUDE / THANK YOU ───────────────────────── */
+    .gratitude-wrap {
+      max-width: 1100px; margin: 6rem auto 4rem; padding: 0 2rem;
+      text-align: center;
+    }
+    .gratitude-photos {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin: 2.5rem 0 3rem;
+    }
+    .gratitude-photo {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.85rem;
+    }
+    .gratitude-photo .photo-frame {
+      width: 100%; aspect-ratio: 4 / 5; overflow: hidden;
+      border-radius: 14px; border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+    }
+    .gratitude-photo:hover .photo-frame {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 55px rgba(66,133,244,0.18);
+    }
+    .gratitude-photo .photo-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .gratitude-photo .photo-name {
+      font-weight: 700; font-size: 0.95rem; color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .gratitude-photo .photo-role {
+      font-size: 0.75rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .gratitude-message {
+      max-width: 720px; margin: 0 auto;
+      font-size: 1.05rem; line-height: 1.85;
+      color: rgba(255,255,255,0.78);
+    }
+    .gratitude-message strong { color: var(--text); font-weight: 600; }
+    .gratitude-thanks {
+      margin-top: 3rem;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #4285F4, #EA4335 35%, #FBBC04 70%, #34A853);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+      background-size: 200% 200%;
+    }
+    @media (max-width: 700px) {
+      .gratitude-photos { grid-template-columns: 1fr; gap: 2rem; max-width: 320px; margin-left: auto; margin-right: auto; }
+    }
+
     /* ── FADE IN ─────────────────────────────────────── */
     .fade-in {
       opacity: 0; transform: translateY(22px);
@@ -639,8 +726,8 @@
     </h1>
 
     <div class="hero-meta">
-      <span>April 2026</span>
-      <span>Freshworks, Chennai</span>
+      <span>Saturday, 25 April 2026</span>
+      <span>9:00 AM &mdash; 4:00 PM</span>
       <span>3 Sessions &middot; 3 Speakers</span>
     </div>
 
@@ -1129,6 +1216,69 @@
   </div>
 </div>
 
+<!-- ── COMMUNITY MEETUP ───────────────────────────────── -->
+<div class="community-wrap fade-in">
+  <div class="community-card">
+    <div class="community-photo">
+      <img src="images/IMG_5127.jpeg" alt="Meetup with college students and young professionals">
+    </div>
+    <div class="community-text">
+      <div class="section-eyebrow">People &middot; Community</div>
+      <h3>Met an inspiring group of students &amp; young professionals</h3>
+      <p>
+        Got to interact with a really sharp bunch of <strong>college students and young professionals</strong> at the event.
+        The conversations were energetic — they were genuinely curious, asking the right questions, and clearly soaking up
+        a lot for how early they are in their journey.
+      </p>
+      <p>
+        What stood out: this group is already <strong>running their own company</strong> — building things, shipping things,
+        figuring it out at an age where most of us were still finding our feet. Truly glad to have met them.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── GRATITUDE / CLOSING ────────────────────────────── -->
+<div class="gratitude-wrap fade-in">
+  <div class="section-eyebrow" style="justify-content:center">A Closing Note</div>
+  <h2 class="section-heading" style="text-align:center">With Gratitude</h2>
+
+  <div class="gratitude-photos">
+    <div class="gratitude-photo">
+      <div class="photo-frame">
+        <img src="images/IMG_5117.jpeg" alt="Somasundaram Mahesh">
+      </div>
+      <div class="photo-name">Somasundaram Mahesh</div>
+      <div class="photo-role">Session 1 · Android &amp; AI</div>
+    </div>
+    <div class="gratitude-photo">
+      <div class="photo-frame">
+        <img src="images/IMG_5126.jpeg" alt="Sanju Sivalingam">
+      </div>
+      <div class="photo-name">Sanju Sivalingam</div>
+      <div class="photo-role">Session 2 · Right-Sized Models</div>
+    </div>
+    <div class="gratitude-photo">
+      <div class="photo-frame">
+        <img src="images/IMG_5125.jpeg" alt="Varun Raja Manoharan">
+      </div>
+      <div class="photo-name">Varun Raja Manoharan</div>
+      <div class="photo-role">Session 3 · MCP in the Browser</div>
+    </div>
+  </div>
+
+  <p class="gratitude-message">
+    I am truly thankful to all the speakers — the conversations and interactions throughout the day were genuinely insightful.
+    A special thanks to <strong>Sanju Sivalingam</strong> for being so transparent and patient — every doubt, big or small,
+    was met with a clear, thoughtful explanation. To <strong>Somasundaram Mahesh</strong> and <strong>Varun Raja Manoharan</strong>,
+    thank you for sharing the real, unfiltered lessons from your own work.
+    <br><br>
+    Thank you for a memorable session. Looking forward to many more interactive ones with you all.
+  </p>
+
+  <div class="gratitude-thanks">Thank You.</div>
+</div>
+
 <!-- ── FOOTER ─────────────────────────────────────────── -->
 <footer>
   <div class="footer-bar">
@@ -1140,7 +1290,7 @@
 
   <div class="footer-author">MUHIBBUDDIN SHAID HAKKEEM</div>
   <div class="footer-note">
-    Notes curated &amp; page built by Shaid &middot; GDG Chennai Build with AI 2026
+    Session notes taken, summarised, curated and built into this website by MUHIBBUDDIN SHAID HAKKEEM
   </div>
 
   <div class="footer-links">
